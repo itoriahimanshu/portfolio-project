@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-
-    <title>Himanshu Itoria</title>
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
@@ -16,13 +16,13 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#7952b3">
+<link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
 
 
     <style>
@@ -56,7 +56,7 @@
       <div class="navbar-nav ms-auto">
         <a  class="nav-link" href="https://www.linkedin.com/in/himanshu-itoria-b67951195/">LinkedIn</a>
         <a  class="nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-        <a  class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+        <a  class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
 
       </div>
     </div>
@@ -65,41 +65,25 @@
 </header>
 
 <main>
+  <div class = "container">
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <div class="container">
-        <h1 class="fw-light">Hi, I'm Himanshu</h1>
-        <p class="lead text-muted">I'm looking to explore and collaborate to find answers.</p>
-        <p>
-          <a href="mailto:itoriahimanshu@gmail.com" class="btn btn-primary my-2">Email</a>
+     <h1 class = "text-center pt-3"> {{ blog.title }} </h1>
 
-        </p>
-        <img src = "{% static 'vsm.jpeg' %}" height = 400 />
-      </div>
-      </div>
-    </div>
-  </section>
+     <br/>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
+     <p class = "text-center">
+       {{ blog.published_date }}
+       <br/>
+       <img class= "img-fluid" src = "{{ blog.image.url }}" height = 300 width = 500 />
+     </p>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+     <br/>
+     {{ blog.body }}
+     <br/>
+     <br/>
+     <br/>
 
-        {% for job in jobs.all %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <image class="bd-placeholder-img card-img-top" src = "{{ job.image.url }}" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>
-             {% endfor %}
 
-      </div>
-    </div>
   </div>
 
 </main>
